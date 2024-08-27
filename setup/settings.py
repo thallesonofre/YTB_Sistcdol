@@ -46,7 +46,8 @@ THIRD_PARTY_APPS = [
 ]
 
 MY_APPS = [
-    "modulos",
+    "modulos.apps.ModulosConfig",
+    "paginas.apps.PaginasConfig",
 ]
 
 
