@@ -8,6 +8,9 @@ class Cliente(models.Model):
     email = models.EmailField(null=True)
     endereco = models.CharField(max_length=150, verbose_name="endereço")
     
+    def __str__(self):
+        return "Nome: {} | CPF: {}".format(self.nome, self.cpf)
+    
 class Marca(models.Model):
     nome = models.CharField(max_length=50)
     

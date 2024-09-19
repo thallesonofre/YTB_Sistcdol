@@ -7,7 +7,7 @@ from .views import ClienteList
 
 urlpatterns = [
     #create
-    path('cadastrar/cliente', ClienteCreate.as_view(), name="cadastar_cliente"),
+    path('cadastrar/cliente', ClienteCreate.as_view(), name="cadastrar_cliente"),
     
     #Update
     path('editar/cliente/<int:pk>', ClienteUpdate.as_view(), name="editar_cliente"),
