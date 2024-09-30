@@ -1,0 +1,50 @@
+{% extends "paginas/modelo.html" %}
+
+{% load static %}
+
+
+{% block conteudo %}
+<h3>Lista de Veículos Cadastrados</h3>
+<a href="{% url "cadastrar_veiculo" %}" class="btn btn-primary btn-sm float-right position-relative">Cadastrar Veículos</a>
+
+<hr>
+
+<div class="table table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Placa</th>
+            <th>Cor</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Ano</th>
+            <th>Cliente</th>
+            <th>Opções</th>
+        </tr>
+
+        {% for veiculo in object_list %}
+        <tr>
+            <td>{{ veiculo.placa }}</td>
+            <td>{{ veiculo.cor }}</td>
+            <td>{{ veiculo.marca }}</td>
+            <td>{{ veiculo.modelo }}</td>
+            <td>{{ veiculo.ano }}</td>
+            <td>{{ veiculo.cliente }}</td>
+            <td>
+                <a href="{% url "editar_veiculo" veiculo.pk %}" class="btn btn-warning btn-sm" title="Editar">
+                    <i class="bi bi-pencil-fill"></i>
+                </a>
+                <a href="{% url "excluir_veiculo" veiculo.pk %}" class="btn btn-danger btn-sm" title="Excluir">
+                    <i class="bi bi-trash-fill"></i>
+                </a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">Nenhum veículo cadastrado.</td>
+        </tr>
+        {% endfor %}
+
+
+    </table>
+</div><br><br><br>
+{% endblock conteudo %}

@@ -19,7 +19,7 @@
         <!-- inicio bloco menu-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-lg-5">
-                <a class="navbar-brand" href="">Sistcdol</a>
+                <a class="navbar-brand" href="#">Sistcdol</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -66,7 +66,7 @@
 								<img src="{% static 'img/cliente.png' %}" class="crounded mx-auto d-block" alt="Cad. Cliente">
 								<div class="img-fluid width: 15px">
 									<h5 class="card-title"></h5>
-									<a href="{% url "listar_clientes" %}" class="btn btn-primary">Cadastro Clientes</a>
+									<a href="{% url 'listar_clientes' %}" class="btn btn-primary">Cadastro Clientes</a>
 								</div>
 							</div>
                         </div>
@@ -77,7 +77,7 @@
 								<img src="{% static 'img/veiculo.png' %}" class="crounded mx-auto d-block" alt="Cad. Veículo">
 								<div class="img-fluid width: 15px">
 									<h5 class="card-title"></h5>
-									<a href="#" class="btn btn-primary">Cadastro Veículos</a>
+									<a href="{% url 'listar_veiculos' %}" class="btn btn-primary">Cadastro Veículos</a>
 								</div>
 							</div>
                         </div>
@@ -88,7 +88,7 @@
 								<img src="{% static 'img/marca.png' %}" class="crounded mx-auto d-block" alt="Cad. marca">
 								<div class="img-fluid width: 15px">
 									<h5 class="card-title"></h5>
-									<a href="#" class="btn btn-primary">Cadastro Marcas</a>
+									<a href="{% url 'listar_marcas' %}" class="btn btn-primary">Cadastro Marcas</a>
 								</div>
 							</div>
                         </div>

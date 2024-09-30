@@ -14,6 +14,9 @@ class Cliente(models.Model):
 class Marca(models.Model):
     nome = models.CharField(max_length=50)
     
+    def __str__(self):
+        return "- {} -".format(self.nome)
+    
 class Veiculo(models.Model):
     placa = models.CharField(max_length=8)
     cor = models.CharField(max_length=20)
@@ -21,6 +24,9 @@ class Veiculo(models.Model):
     modelo = models.CharField(max_length=50)
     ano = models.DateField()
     cliente = models.ForeignKey(Cliente, on_delete=models.PROTECT)
+    
+    def __str__(self):
+        return "Veículo de placa: {} ".format(self.placa)
 
 class Oleo(models.Model):
     tipo = models.CharField(max_length=20)
