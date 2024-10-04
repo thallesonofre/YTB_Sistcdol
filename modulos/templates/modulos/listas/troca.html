@@ -1,0 +1,52 @@
+{% extends "paginas/modelo.html" %}
+
+{% load static %}
+
+
+{% block conteudo %}
+<h3>Lista de Trocas Realizadas</h3>
+<a href="{% url "cadastrar_troca" %}" class="btn btn-primary btn-sm float-right position-relative">Lançar Trocas</a>
+<a href="{% url "cadastrar_cliente" %}" class="btn btn-light btn-sm float-right position-relative">Cadastrar Cliente</a>
+<a href="{% url "cadastrar_veiculo" %}" class="btn btn-light btn-sm float-right position-relative">Cadastrar Veículo</a>
+<a href="{% url "cadastrar_oleo" %}" class="btn btn-light btn-sm float-right position-relative">Cadastrar Óleo</a>
+<a href="{% url "cadastrar_filtro" %}" class="btn btn-light btn-sm float-right position-relative">Cadastrar Filtro</a>
+
+<hr>
+
+<div class="table table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Data</th>
+            <th>Placa</th>
+            <th>Óleo</th>
+            <th>Filtro</th>
+            <th>KM Próxima Troca</th>
+            <th>Opções</th>
+        </tr>
+
+        {% for troca in object_list %}
+        <tr>
+            <td>{{ troca.data }}</td>
+            <td>{{ troca.placa }}</td>
+            <td>{{ troca.oleo }}</td>
+            <td>{{ troca.filtro }}</td>
+            <td>{{ troca.kmpt }}</td>
+            <td>
+                <a href="{% url "editar_troca" troca.pk %}" class="btn btn-warning btn-sm" title="Editar">
+                    <i class="bi bi-pencil-fill"></i>
+                </a>
+                <a href="{% url "excluir_troca" troca.pk %}" class="btn btn-danger btn-sm" title="Excluir">
+                    <i class="bi bi-trash-fill"></i>
+                </a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">Nenhuma troca registrada.</td>
+        </tr>
+        {% endfor %}
+
+
+    </table>
+</div><br><br><br>
+{% endblock conteudo %}

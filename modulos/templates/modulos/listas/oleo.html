@@ -1,0 +1,42 @@
+{% extends "paginas/modelo.html" %}
+
+{% load static %}
+
+
+{% block conteudo %}
+<h3>Lista de Tipo de Óleo Cadastrado</h3>
+<a href="{% url "cadastrar_oleo" %}" class="btn btn-primary btn-sm float-right position-relative">Cadastrar Tipo de Óleo</a>
+
+<hr>
+
+<div class="table table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Tipo</th>
+            <th>Descrição</th>
+            <th>Opções</th>
+        </tr>
+
+        {% for oleo in object_list %}
+        <tr>
+            <td>{{ oleo.tipo }}</td>
+            <td>{{ oleo.descricao }}</td>
+            <td>
+                <a href="{% url "editar_oleo" oleo.pk %}" class="btn btn-warning btn-sm" title="Editar">
+                    <i class="bi bi-pencil-fill"></i>
+                </a>
+                <a href="{% url "excluir_oleo" oleo.pk %}" class="btn btn-danger btn-sm" title="Excluir">
+                    <i class="bi bi-trash-fill"></i>
+                </a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">Nenhum Tipo de Óleo cadastrado.</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    
+</div><br><br><br>
+{% endblock conteudo %}
